@@ -1,4 +1,4 @@
-﻿namespace MCarDealer.Models.AccountViewModels
+﻿namespace MCarDealer.Models.Account
 {
    using System.ComponentModel.DataAnnotations;
 

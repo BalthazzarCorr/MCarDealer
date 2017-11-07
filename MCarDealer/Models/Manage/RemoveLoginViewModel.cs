@@ -1,4 +1,4 @@
-﻿namespace MCarDealer.Models.ManageViewModels
+﻿namespace MCarDealer.Models.Manage
 {
    public class RemoveLoginViewModel
     {

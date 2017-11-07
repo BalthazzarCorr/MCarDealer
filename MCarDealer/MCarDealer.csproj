@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MCarDealer.Data\MCarDealer.Data.csproj" />
+    <ProjectReference Include="..\MCarDealer.Services\MCarDealer.Services.csproj" />
   </ItemGroup>
 
 </Project>

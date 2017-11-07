@@ -1,8 +1,8 @@
-﻿namespace MCarDealer.Models.AccountViewModels
+namespace MCarDealer.Models.Account
 {
    using System.ComponentModel.DataAnnotations;
 
-   public class ForgotPasswordViewModel
+   public class ExternalLoginViewModel
     {
         [Required]
         [EmailAddress]

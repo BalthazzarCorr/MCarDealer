@@ -1,12 +1,10 @@
-﻿namespace MCarDealer.Services
+﻿namespace MCarDealer.Services.Implementations
 {
    using System;
    using System.Collections.Generic;
    using System.Linq;
-   using Models;
    using Data;
-   using Microsoft.EntityFrameworkCore.Internal;
-   using Remotion.Linq.Clauses;
+   using Models;
 
    public class CustomerService : ICustomerService
    {
@@ -23,7 +21,7 @@
 
          switch (order)
          {
-            case OrderDirection.Asending:
+            case OrderDirection.Ascending:
                customerQuery = customerQuery.OrderBy(c => c.BirthDate).ThenBy(c=>c.Name);
                break;
             case OrderDirection.Descending:
@@ -33,7 +31,12 @@
                throw new InvalidOperationException($"Invalid order direction {order}");
          }
 
-         return customerQuery
+         return  customerQuery.Select(c=> new CustomerModel
+         {
+            Name = c.Name,
+            BirthDate = c.BirthDate,
+            IsYoungDriver = c.IsYoungDriver
+         }).ToList();
       }
    }
 }
