@@ -14,6 +14,7 @@
          this.customers = customers;
       }
 
+      [Route("customers/all/{order}")]
       public IActionResult All(string order)
       {
          var orderDirection = order.ToLower() == "ascending" ? OrderDirection.Ascending : OrderDirection.Descending;

@@ -18,6 +18,7 @@
       public DbSet<Sale> Sales { get; set; }
       public DbSet<Supplier> Suppliers { get; set;}
       public DbSet<Customer> Customers { get; set; }
+      public DbSet<Part> Parts { get; set; }
 
 
       protected override void OnModelCreating(ModelBuilder builder)

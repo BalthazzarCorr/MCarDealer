@@ -11,9 +11,10 @@ using System;
 namespace MCarDealer.Data.Migrations
 {
     [DbContext(typeof(CarDealerDbContext))]
-    partial class CarDealerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171108135454_SupplierParts")]
+    partial class SupplierParts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,7 +131,7 @@ namespace MCarDealer.Data.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("Parts");
+                    b.ToTable("Part");
                 });
 
             modelBuilder.Entity("MCarDealer.Data.Models.PartCar", b =>

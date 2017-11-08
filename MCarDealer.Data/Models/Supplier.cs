@@ -1,5 +1,6 @@
 ﻿namespace MCarDealer.Data.Models
 {
+   using System.Collections.Generic;
    using System.ComponentModel.DataAnnotations;
 
    public class Supplier
@@ -11,5 +12,7 @@
       public string Name { get; set; }
 
       public bool IsImporter { get; set; }
+
+      public List<Part> Parts { get; set;} = new List<Part>();
    }
 }
