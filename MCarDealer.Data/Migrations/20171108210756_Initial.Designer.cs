@@ -11,8 +11,8 @@ using System;
 namespace MCarDealer.Data.Migrations
 {
     [DbContext(typeof(CarDealerDbContext))]
-    [Migration("20171108135748_SupplierPartsNew")]
-    partial class SupplierPartsNew
+    [Migration("20171108210756_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

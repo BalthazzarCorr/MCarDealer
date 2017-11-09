@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MCarDealer.Data.Migrations
 {
-    public partial class InitialTables : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -226,7 +226,7 @@ namespace MCarDealer.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Part",
+                name: "Parts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -239,9 +239,9 @@ namespace MCarDealer.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Part", x => x.Id);
+                    table.PrimaryKey("PK_Parts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Part_Suppliers_SupplierId",
+                        name: "FK_Parts_Suppliers_SupplierId",
                         column: x => x.SupplierId,
                         principalTable: "Suppliers",
                         principalColumn: "Id",
@@ -267,9 +267,9 @@ namespace MCarDealer.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PartCar_Part_Part_Id",
+                        name: "FK_PartCar_Parts_Part_Id",
                         column: x => x.Part_Id,
-                        principalTable: "Part",
+                        principalTable: "Parts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -314,11 +314,6 @@ namespace MCarDealer.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Part_SupplierId",
-                table: "Part",
-                column: "SupplierId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PartCar_Car_Id",
                 table: "PartCar",
                 column: "Car_Id");
@@ -327,6 +322,11 @@ namespace MCarDealer.Data.Migrations
                 name: "IX_PartCar_Part_Id",
                 table: "PartCar",
                 column: "Part_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Parts_SupplierId",
+                table: "Parts",
+                column: "SupplierId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sales_Car_Id",
@@ -369,7 +369,7 @@ namespace MCarDealer.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Part");
+                name: "Parts");
 
             migrationBuilder.DropTable(
                 name: "Cars");

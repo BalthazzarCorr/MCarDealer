@@ -4,6 +4,9 @@
    using Models.Cars;
    using Services;
 
+
+
+   [Route("cars")]
    public class CarsController : Controller
    {
       private readonly ICarService cars;
@@ -14,7 +17,7 @@
       }
 
 
-      [Route("cars/{make}")]
+      [Route("{make}" , Order = 2)]
       public IActionResult ByMake(string make)
       {
          var cars = this.cars.ByMake(make);
@@ -26,6 +29,7 @@
          });
       }
 
+      [Route("parts",Order = 1)]
       public IActionResult Parts()
       {
          return View(this.cars.WithParts());
