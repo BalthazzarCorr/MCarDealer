@@ -1,4 +1,4 @@
-﻿namespace MCarDealer.Services.Implementations
+﻿namespace MCarDealer.Services.Implementation
 {
    using System;
    using System.Collections.Generic;
@@ -6,6 +6,7 @@
    using Data;
    using Models;
    using Models.Customers;
+   using Models.Sales;
 
    public class CustomerService : ICustomerService
    {
@@ -48,8 +49,12 @@
             .Select(c => new CustomerTotalSalesModel
             {
                Name = c.Name,
-               BoughtCars = c.Sales.Count,
-               TotalMoneySpent = c.Sales.Sum(s=>s.Car.Parts.Sum(p=>p.Part.Price))
+               IsYoungDriver = c.IsYoungDriver,
+               BoughtCars = c.Sales.Select(s => new SaleModel
+               {
+                  Price = s.Car.Parts.Sum(p=>p.Part.Price),
+                  Discount = s.Discount
+               })
             })
             .FirstOrDefault();
       }

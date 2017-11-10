@@ -9,6 +9,7 @@
    using Microsoft.Extensions.DependencyInjection;
    using Data.Models;
    using Services;
+   using Services.Implementation;
    using Services.Implementations;
 
 
@@ -38,6 +39,7 @@
 
          services.AddTransient<ICarService, CarService>();
          services.AddTransient<ISupplierService, SupplierService>();
+         services.AddTransient<ISaleService, SaleService>();
 
          services.AddMvc();
       }

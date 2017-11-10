@@ -5,6 +5,7 @@
    using Services;
    using Services.Models;
 
+   [Route("customers")]
    public class CustomersController : Controller
    {
       private readonly ICustomerService customers;
@@ -14,7 +15,7 @@
          this.customers = customers;
       }
 
-      [Route("customers/all/{order}")]
+      [Route("all/{order}")]
       public IActionResult All(string order)
       {
          var orderDirection = order.ToLower() == "ascending" ? OrderDirection.Ascending : OrderDirection.Descending;
@@ -28,5 +29,9 @@
             OrderDirection = orderDirection
          });
       }
+
+      [Route("{id}")]
+      public IActionResult TotalSales(int id)
+         => View(this.customers.TotalSales(id));
    }
 }

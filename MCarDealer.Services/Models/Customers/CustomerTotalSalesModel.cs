@@ -1,11 +1,23 @@
 ﻿namespace MCarDealer.Services.Models.Customers
 {
-    public class CustomerTotalSalesModel
-    {
-       public string Name { get; set; }
+   using System.Collections.Generic;
+   using System.Linq;
+   using Sales;
 
-       public int BoughtCars { get; set; }
+   public class CustomerTotalSalesModel
+   {
+      public string Name { get; set; }
 
-       public decimal TotalMoneySpent { get; set; }
-    }
+      public bool IsYoungDriver { get; set; }
+
+      public IEnumerable<SaleModel> BoughtCars { get; set; }
+
+      public int TotalBoughtCars => this.BoughtCars.Count();
+
+      public decimal TotalMoneySpent
+      { 
+         get { return this.BoughtCars.Sum(c => c.Price * (1 - (decimal)c.Discount)) * (this.IsYoungDriver ? 0.95m : 1 ); }
+      }
+
+   }
 }

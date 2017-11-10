@@ -11,7 +11,7 @@ using System;
 namespace MCarDealer.Data.Migrations
 {
     [DbContext(typeof(CarDealerDbContext))]
-    [Migration("20171108210756_Initial")]
+    [Migration("20171109193238_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
