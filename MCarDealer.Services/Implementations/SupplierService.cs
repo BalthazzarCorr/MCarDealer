@@ -15,7 +15,9 @@
       }
 
       public IEnumerable<SupplierModel> All(bool isImporter)
-         => this.db.Suppliers
+         => this.db
+            .Suppliers
+            .OrderByDescending(s=>s.Id)
             .Where(c => c.IsImporter == isImporter)
             .Select(c => new SupplierModel
             {

@@ -8,6 +8,7 @@
    using Microsoft.Extensions.Configuration;
    using Microsoft.Extensions.DependencyInjection;
    using Data.Models;
+   using Infrastructure.Extensions;
    using Services;
    using Services.Implementation;
    using Services.Implementations;
@@ -33,13 +34,18 @@
              .AddDefaultTokenProviders();
 
          // Add application services.
-         services.AddTransient<IEmailSender, EmailSender>();
 
-         services.AddTransient<ICustomerService, CustomerService>();
 
-         services.AddTransient<ICarService, CarService>();
-         services.AddTransient<ISupplierService, SupplierService>();
-         services.AddTransient<ISaleService, SaleService>();
+         services.AddDomainServices();
+
+         //services.AddTransient<IEmailSender, EmailSender>();
+
+
+         //services.AddTransient<ICustomerService, CustomerService>();
+
+         //services.AddTransient<ICarService, CarService>();
+         //services.AddTransient<ISupplierService, SupplierService>();
+         //services.AddTransient<ISaleService, SaleService>();
 
          services.AddMvc();
       }

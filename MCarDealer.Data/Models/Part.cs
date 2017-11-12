@@ -16,10 +16,11 @@
 
       [Range(0,int.MaxValue)]
       public int Quantity { get; set; }
-
-      public int Supplier_Id { get; set; }
+      
 
       public Supplier Supplier { get; set; }
+
+      public int Supplier_Id { get; set; }
 
       public List<PartCar> Cars { get; set; } = new List<PartCar>();
    }

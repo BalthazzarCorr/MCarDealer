@@ -40,7 +40,7 @@
                 <ul>
                     @foreach (var part in car.Parts)
                     {
-                        <li>@part.Name - $@part.Price.ToString("F2")</li>
+                        <li>@part.Name - $@part.Price.ToPrice()</li>
                     }
                 </ul>
             </th>

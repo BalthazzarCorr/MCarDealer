@@ -16,6 +16,9 @@
          this.cars = cars;
       }
 
+      [Route("all")]
+      public IActionResult All()
+         => View(this.cars.All());
 
       [Route("{make}" , Order = 2)]
       public IActionResult ByMake(string make)

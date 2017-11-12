@@ -8,5 +8,7 @@
       IEnumerable<CarModel> ByMake(string make);
 
       IEnumerable<CarWithPartsModel> WithParts();
+
+      IEnumerable<CarModel> All();
    }
 }

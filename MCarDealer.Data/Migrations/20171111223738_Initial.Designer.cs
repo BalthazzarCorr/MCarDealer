@@ -11,9 +11,10 @@ using System;
 namespace MCarDealer.Data.Migrations
 {
     [DbContext(typeof(CarDealerDbContext))]
-    partial class CarDealerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171111223738_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,7 +122,7 @@ namespace MCarDealer.Data.Migrations
                     b.Property<decimal>("Price");
 
                     b.Property<int>("Quantity");
-
+                   
                     b.Property<int>("Supplier_Id");
 
                     b.HasKey("Id");
@@ -297,8 +298,7 @@ namespace MCarDealer.Data.Migrations
                 {
                     b.HasOne("MCarDealer.Data.Models.Supplier", "Supplier")
                         .WithMany("Parts")
-                        .HasForeignKey("Supplier_Id")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Supplier_Id");
                 });
 
             modelBuilder.Entity("MCarDealer.Data.Models.PartCar", b =>

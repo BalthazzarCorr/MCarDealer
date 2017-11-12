@@ -22,4 +22,8 @@
     <ProjectReference Include="..\MCarDealer.Services\MCarDealer.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Parts\" />
+  </ItemGroup>
+
 </Project>

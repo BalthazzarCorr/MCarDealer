@@ -11,8 +11,8 @@ using System;
 namespace MCarDealer.Data.Migrations
 {
     [DbContext(typeof(CarDealerDbContext))]
-    [Migration("20171109193238_Initial")]
-    partial class Initial
+    [Migration("20171111231402_new")]
+    partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,13 +123,11 @@ namespace MCarDealer.Data.Migrations
 
                     b.Property<int>("Quantity");
 
-                    b.Property<int?>("SupplierId");
-
                     b.Property<int>("Supplier_Id");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SupplierId");
+                    b.HasIndex("Supplier_Id");
 
                     b.ToTable("Parts");
                 });
@@ -300,7 +298,8 @@ namespace MCarDealer.Data.Migrations
                 {
                     b.HasOne("MCarDealer.Data.Models.Supplier", "Supplier")
                         .WithMany("Parts")
-                        .HasForeignKey("SupplierId");
+                        .HasForeignKey("Supplier_Id")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("MCarDealer.Data.Models.PartCar", b =>

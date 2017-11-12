@@ -30,6 +30,9 @@
 
          builder.Entity<Sale>().HasOne(c => c.Customer).WithMany(c => c.Sales).HasForeignKey(c => c.Customer_Id);
 
+         builder.Entity<Part>().HasOne(s => s.Supplier).WithMany(p => p.Parts).HasForeignKey(s => s.Supplier_Id);
+         
+
 
          base.OnModelCreating(builder);
 

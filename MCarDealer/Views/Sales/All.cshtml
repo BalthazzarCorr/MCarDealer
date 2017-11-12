@@ -29,13 +29,16 @@
                 @sale.CustomerName
             </td>
             <td>
-                @(sale.Discount + (sale.IsYoungDriver ? 0.05 : 0))
+                @((sale.Discount + (sale.IsYoungDriver ? 0.05 : 0)).ToPercentage())
             </td>
             <td>
-                @sale.Price.ToString("F2")
+                @sale.Price.ToPrice()
             </td>
             <td>
-                @sale.DiscountedPrice.ToString("F2")
+                @sale.DiscountedPrice.ToPrice()
+            </td>
+            <td>
+                <a class="btn btn-sm btn-default" href ="/sales/@sale.Id">More Details</a>
             </td>
         </tr>
         }

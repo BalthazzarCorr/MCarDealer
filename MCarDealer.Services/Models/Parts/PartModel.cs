@@ -1,4 +1,4 @@
-﻿namespace MCarDealer.Services.Models
+﻿namespace MCarDealer.Services.Models.Parts
 {
    public class PartModel
    {

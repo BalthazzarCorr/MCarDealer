@@ -14,5 +14,5 @@
    @(totalCars) - @( totalCars != 1  ? "Cars": "Car"  ) Bought
 </p>
 <p>
-    $@Model.TotalMoneySpent.ToString("F2")
+    $@Model.TotalMoneySpent.ToPrice()
 </p>

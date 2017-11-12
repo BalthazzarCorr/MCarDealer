@@ -234,15 +234,14 @@ namespace MCarDealer.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    SupplierId = table.Column<int>(type: "int", nullable: true),
                     Supplier_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Parts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Parts_Suppliers_SupplierId",
-                        column: x => x.SupplierId,
+                        name: "FK_Parts_Suppliers_Supplier_Id",
+                        column: x => x.Supplier_Id,
                         principalTable: "Suppliers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -324,9 +323,9 @@ namespace MCarDealer.Data.Migrations
                 column: "Part_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Parts_SupplierId",
+                name: "IX_Parts_Supplier_Id",
                 table: "Parts",
-                column: "SupplierId");
+                column: "Supplier_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sales_Car_Id",
