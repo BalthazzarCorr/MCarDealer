@@ -7,7 +7,7 @@
 
    public class PartService : IPartService
    {
-      private const int PageSize = 25;
+   
       private readonly CarDealerDbContext db;
 
       public PartService(CarDealerDbContext db)
@@ -15,12 +15,12 @@
          this.db = db;
       }
 
-      public IEnumerable<PartListingModel> All(int page = 1)
+      public IEnumerable<PartListingModel> All(int page = 1,int pageSize = 10)
          => this.db
             .Parts
             .OrderByDescending(p=>p.Id)
-            .Skip((page-1)* PageSize)
-            .Take(PageSize)
+            .Skip((page-1)* pageSize)
+            .Take(pageSize)
             .Select(p => new PartListingModel
             {
                Id = p.Id,
@@ -29,5 +29,8 @@
                Quantity = p.Quantity,
                SupplierName = p.Supplier.Name
             }).ToList();
+
+      public int Total() => this.db.Parts.Count();
+
    }
 }

@@ -1,4 +1,4 @@
-﻿namespace MCarDealer.Services.Models
+﻿namespace MCarDealer.Services.Models.Suppliers
 {
    public class SupplierModel
    {
@@ -7,7 +7,6 @@
 
       public string Name { get; set; }
 
-      public int TotalParts { get; set; } 
    }
 }
    

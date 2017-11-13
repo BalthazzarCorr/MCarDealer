@@ -2,12 +2,12 @@
 {
    using System.Collections.Generic;
    using Models;
+   using Models.Suppliers;
 
    public interface ISupplierService
    {
-      IEnumerable<SupplierModel> All(bool isImporter);
+      IEnumerable<SupplierListingModel> AllListings(bool isImporter);
 
-
-
+      IEnumerable<SupplierModel> All();
    }
 }
