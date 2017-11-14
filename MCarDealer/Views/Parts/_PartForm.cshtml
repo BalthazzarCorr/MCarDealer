@@ -1,4 +1,27 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PartFormModel
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="form-text text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" class="form-control"/>
+        <span asp-validation-for="Price" class="form-text text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quantity">Quantity</label>
+        <input asp-for="Quantity"  min="1" class="form-control"/>
+        <span asp-validation-for="Quantity" class="form-text text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Supplier_Id">Quantity</label>
+       <select asp-for ="Supplier_Id"asp-items="Model.AllSuppliers" class="form-control"></select>
+        <span asp-validation-for="Supplier_Id" class="form-text text-danger"></span>
+    </div>
+    <div>
+        <input type="submit" class=" btn btn-success" value="Save Part"/>
+    </div>
+</form>

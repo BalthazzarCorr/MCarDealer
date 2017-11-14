@@ -3,6 +3,7 @@
    using System.Collections.Generic;
    using System.Linq;
    using Data;
+   using Data.Models;
    using Models.Parts;
 
    public class PartService : IPartService
@@ -14,6 +15,23 @@
       {
          this.db = db;
       }
+
+
+      public void Create(string name, decimal price, int quantity, int supplierId)
+      {
+         var part = new Part
+         {
+            Name = name,
+            Price = price,
+            Quantity = quantity > 0 ? quantity : 1,
+            Supplier_Id = supplierId
+         };
+
+         this.db.Parts.Add(part);
+
+         this.db.SaveChanges();
+      }
+
 
       public IEnumerable<PartListingModel> All(int page = 1,int pageSize = 10)
          => this.db
@@ -32,5 +50,6 @@
 
       public int Total() => this.db.Parts.Count();
 
+ 
    }
 }

@@ -4,7 +4,7 @@
 }
 <h2>@ViewData["Title"] 
 
-    <a class="btn btn-primary" href="/part/create">Add Part  </a>
+    <a class="btn btn-primary" href="/parts/create">Add Part  </a>
 </h2>
 
 
@@ -57,6 +57,8 @@
    var previosDisabled = Model.CurrentPage == 1 ? "disabled" : string.Empty;
 
     var nextDisabled = Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty;
+
+    var currentPage = Model.CurrentPage;
 }
 
 
@@ -64,18 +66,19 @@
 <div class="text-center">
     <ul class="pagination">
         <li class="page-item @previosDisabled" >
-            <a class="page-link @previosDisabled" href="/parts/all?pages = @Model.PreviousPage" aria-label="Previous">
+            <a class="page-link @previosDisabled" href="/parts/all?page=@Model.PreviousPage" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span class="sr-only">Previous</span>
             </a>
         </li>
         @for (int i = 1; i <= Model.TotalPages; i++)
         {
-        <li class="page-item"><a class="page-link" href="/parts/all?page=@i">@i</a></li>
+            <li class="page-item"><a class="page-link" href="/parts/all?page=@i">@i</a></li>
+          
         }
 
         <li class="page-item @nextDisabled">
-            <a class="page-link @nextDisabled" href/parts/all?pages=@Model.NextPage aria-label="Next">
+            <a class="page-link @nextDisabled" href = "/parts/all?page=@Model.NextPage" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
             </a>
